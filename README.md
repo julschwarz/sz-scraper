@@ -1,5 +1,5 @@
 # sz-scraper
-A **scraper for the german Süddeutsche Zeitung** using https://web.archive.org.
+A **scraper for the german [Süddeutsche Zeitung](https://www.sueddeutsche.de)** using https://web.archive.org.
 
 You can **search for articles that match *keywords* within a given *timeframe*.** The scraper will search for the keywords inside the article's *teaser*, *title* and *topic* and save the article to `ARTICLES.csv` inside the `/data` directory. 
 
@@ -26,8 +26,8 @@ pip install -r requirements.txt
 ```shell
 python3 main.py
 ```
-## Config
-Inside the config you can adjust the following parameters:
+## Config File
+Inside the `config.py` file you can adjust the following parameters:
 
 `START_DATE` = The start date of the search
 
