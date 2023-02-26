@@ -5,7 +5,7 @@ import pandas as pd
 
 from config import KEYWORDS
 
-def scrapeAfter20180908(soup: BeautifulSoup, Date: str) -> pd.DataFrame:
+def getArticlesAfter20180908(soup: BeautifulSoup, Date: str) -> pd.DataFrame:
     articles = soup.find_all('a',attrs={'class': lambda value: value and value.startswith('sz-teaser')})
 
     articles_df=pd.DataFrame([], columns=['Date', 'Title','Statement','Link','Summary'])

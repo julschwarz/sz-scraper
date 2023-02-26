@@ -4,8 +4,8 @@ import requests
 import pandas as pd
 
 from config import USE_EXISTING_FILE, KEYWORDS, FILENAME, START_DATE, END_DATE
-from scrape_before_2018 import scrapeBefore20180908
-from scrape_after_2018 import scrapeAfter20180908
+from functions.extract_articles_after_2018 import getArticlesAfter20180908
+from functions.extract_articles_before_2018 import getArticlesBefore20180908
 
 #####################################
 # SCRIPT TO PARSE SÜDDEUTSCHE ZEITUNG
@@ -52,9 +52,9 @@ def main(startDate, endDate):
         # check if the date is before 2018-09-08 (the date when the website changed its structure)
         dateFormatted = time.strftime("%d.%m.%Y", currentDate)
         if (time.strftime("%Y%m%d", currentDate) < "20180908"):
-            new_rows = scrapeBefore20180908(soup, dateFormatted)
+            new_rows = getArticlesBefore20180908(soup, dateFormatted)
         else:
-            new_rows = scrapeAfter20180908(soup, dateFormatted)
+            new_rows = getArticlesAfter20180908(soup, dateFormatted)
 
         print(f'Added {len(new_rows)} articles that match keywords "{KEYWORDS}" on {dateFormatted}')
         print(f'----------------------------------------')
